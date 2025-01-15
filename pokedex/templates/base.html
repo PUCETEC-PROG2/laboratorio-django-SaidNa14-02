@@ -13,11 +13,25 @@
                 <h1 style="position: absolute; width: 100%; z-index: 1;">Mi Pokedex</h1>
                 <img src="{% static 'pkbanner.png' %}" alt="pokebanner" class="pbanner">
             </div>
-            {% if user.is_authenticated %}
-            <a href="{% url "logout" %}">Cerrar sesión</a>
-            {% else %}
-            <a href="{% url "pokedex:login" %}">Ingresar</a>
-            {% endif %}
+            
+            <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Pokemon</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'pokedex:trainers' %}">Entrenadores</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'pokedex:login' %}">Ingresar</a>
+                </li>
+                {% endif %}
+            </ul>
+              
             {% block content %}{% endblock content %}
         </div>
     </body>

@@ -26,18 +26,6 @@
                 </div>
             </div>
             {% endfor %}
-        </div>
-
-        <div>
-        <h3>Entrenadores</h3>
-        <ul class="list-group">
-            {% for trainer in trainers %}
-            <li class="list-group-item">
-                <a href="{% url 'pokedex:trainer' trainer.pk %}">{{ trainer | capfirst }}</a>
-                <div>{{trainer.name}}</div>
-            </li>
-            {% endfor %}
-        </ul>
-        </div>        
+        </div>     
     </div>
 {% endblock content %}

@@ -8,11 +8,10 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     pokemons = Pokemon.objects.order_by('name')
-    trainers = Trainer.objects.order_by('name')
     template = loader.get_template('index.html')
     return HttpResponse(template.render(
         {'pokemons': pokemons,                        
-        'trainers': trainers},
+        },
         request))
 
 def pokemon(request, pokemon_id):
@@ -32,6 +31,14 @@ def trainer(request, trainer_id):
     }
     return HttpResponse(template.render(context, request))
 
+def trainers(request):
+    trainers = Trainer.objects.all()
+    template = loader.get_template('trainers.html')
+    return HttpResponse(template.render(
+    {'trainers': trainers,                       
+    },
+        request))
+    
 @login_required
 def add_pokemon (request):
     if request.method == 'POST':
