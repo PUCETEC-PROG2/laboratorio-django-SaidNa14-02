@@ -4,6 +4,8 @@
     <p>Has elegido el pokemon: <strong>{{ pokemon | capfirst }}</strong></p>
     <h3>Informacion del pokemon</h3>
     <ul>
+        <img src="{{ pokemon.picture.url }}" alt="{{ pokemon | capfirst }}" style="width: 30%;">
+        <br>
         <li>Nombre: {{ pokemon.name }}</li>
         <li>Tipo: {{ pokemon.type }}</li>
         <li>Peso: {{ pokemon.weight }}</li>

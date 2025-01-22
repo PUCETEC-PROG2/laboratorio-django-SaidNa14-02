@@ -4,6 +4,8 @@
     <p>Entrenador <strong>{{ trainer | capfirst }}</strong></p>
     <h3>Informacion del Entrenador</h3>
     <ul>
+        <img src="{{ trainer.picture.url }}" alt="{{ trainer | capfirst }}" style="width: 30%;">
+        <br>
         <li>Nombre: {{ trainer.name }}</li>
         <li>Apellido: {{ trainer.last_name }}</li>
         <li>Nivel: {{ trainer.level }}</li>
